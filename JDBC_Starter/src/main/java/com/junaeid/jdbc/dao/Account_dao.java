@@ -13,7 +13,9 @@ public class Account_dao {
 		Statement st = conn.createStatement();
 		//int result = st.executeUpdate("insert into account values(1003,'Ziaul','Hasan',7000)");
 		//System.out.println(result+" rows got inserted");
-		int result = st.executeUpdate("update account set balance = 15940 where accno = 1001");
-		System.out.println(result+" rows got updated");
+		//int result = st.executeUpdate("update account set balance = 15940 where accno = 1001");
+		//System.out.println(result+" rows got updated");
+		int result = st.executeUpdate("delete from account where accno between 1002 and 1003");
+		System.out.println(result+" rows got deleted");
 	}
 }
