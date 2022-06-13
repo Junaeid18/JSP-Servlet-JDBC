@@ -15,4 +15,4 @@ insert into account(accno,firstname,lastname,balance) values(1001,'Md','Junaeid'
 
 insert into account values(1002,'Ziaul','Haque',50000);
 
-
+update account set balance = 15000 where accno = 1003;
