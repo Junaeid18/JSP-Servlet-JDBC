@@ -13,5 +13,6 @@ select * from account;
 
 insert into account(accno,firstname,lastname,balance) values(1001,'Md','Junaeid',5000);
 
+insert into account values(1002,'Ziaul','Haque',50000);
 
 
