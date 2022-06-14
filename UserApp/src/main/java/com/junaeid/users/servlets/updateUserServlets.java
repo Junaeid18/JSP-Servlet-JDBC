@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/addServlet")
-public class createUserServlets extends HttpServlet {
+@WebServlet("/updateServlet")
+public class updateUserServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
 	
@@ -27,16 +27,14 @@ public class createUserServlets extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String fname = request.getParameter("firstName");
-		String lname = request.getParameter("lastName");
 		String email = request.getParameter("email");
 		String pass = request.getParameter("password");
 		try {
 			PrintWriter out = response.getWriter();
 			Statement st = conn.createStatement();
-			int result = st.executeUpdate("insert into users values( '"+fname+"' , '"+lname+"', '"+email+"','"+pass+"')");
+			int result = st.executeUpdate(" update users set password = '"+pass+"' where email = '"+email+"' ");
 			if(result > 0) {
-				out.println("<h1>New User Created.</h1>");
+				out.println("<h1>Users password updated.</h1>");
 			}else out.println("<h1>Error occured.</h1>");
 		} catch (SQLException e) {
 			e.printStackTrace();
