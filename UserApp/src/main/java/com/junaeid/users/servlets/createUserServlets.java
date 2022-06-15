@@ -3,23 +3,34 @@ package com.junaeid.users.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+
+import javax.servlet.ServletConfig;
 //import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/addServlet")
+@WebServlet(urlPatterns = "/addServlet", initParams = {
+		@WebInitParam(name = "dbUrl", value = "jdbc:sqlserver://localhost:1433;"),
+		@WebInitParam(name = "dbName", value = "databaseName=mydb;"),
+		@WebInitParam(name = "dbUserName", value = "user=junaeid;"),
+		@WebInitParam(name = "dbPassword", value = "password=1234;")
+})
 public class createUserServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
 	
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
     	try {
     		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    		conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234");
-		} catch (SQLException e) {
+    		//conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234");
+    		conn = DriverManager.getConnection(config.getInitParameter("dbUrl")+
+    				config.getInitParameter("dbName")+config.getInitParameter("dbUserName")+
+    				config.getInitParameter("dbPassword"));
+    	} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
