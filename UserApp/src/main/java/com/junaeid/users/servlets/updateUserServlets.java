@@ -3,6 +3,9 @@ package com.junaeid.users.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.Enumeration;
+
+import javax.servlet.ServletContext;
 //import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +17,22 @@ import javax.servlet.http.HttpServletResponse;
 public class updateUserServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
+	private Enumeration<String> enumeration;
 	
     public void init() throws ServletException {
     	try {
     		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    		conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234");
-		} catch (SQLException e) {
+    		//conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234");
+    		ServletContext context = getServletContext();
+    		enumeration = context.getInitParameterNames();
+    		while(enumeration.hasMoreElements()) {
+    			String name = enumeration.nextElement();
+    			System.out.println(name);
+    		}
+    		conn = DriverManager.getConnection(context.getInitParameter("dbUrl")+
+    				context.getInitParameter("dbName")+context.getInitParameter("dbUser")+
+    				context.getInitParameter("dbPassword"));
+    	} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
