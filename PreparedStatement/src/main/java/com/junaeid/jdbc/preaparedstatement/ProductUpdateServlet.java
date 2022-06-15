@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/ProductServlet")
-public class PrepardStatementServlet extends HttpServlet {
+@WebServlet("/ProductUpdateServlet")
+public class ProductUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
 	private PreparedStatement st; 
@@ -30,7 +30,7 @@ public class PrepardStatementServlet extends HttpServlet {
 			conn = DriverManager.getConnection(context.getInitParameter("dbUrl")+
 					context.getInitParameter("dbName")+context.getInitParameter("dbUser")+
 					context.getInitParameter("dbPassword"));
-			st = conn.prepareStatement("insert into product values(?,?,?,?)");
+			st = conn.prepareStatement(" update product set price = ? where id = ?");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -49,23 +49,19 @@ public class PrepardStatementServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		String name = request.getParameter("name");
-		String desc = request.getParameter("description");
 		int price = Integer.parseInt(request.getParameter("price"));
 		out = response.getWriter();
 		try {
-			st.setInt(1, id);	st.setString(2, name);	st.setString(3, desc);	st.setInt(4, price);
+			st.setInt(2, id);	st.setInt(1, price);
 			
 			int result = st.executeUpdate();
 			
 			if(result > 0) {
-				out.println("<h1>"+result+" no of product added</h1>");
+				out.println("<h1>"+result+" no of product Updated Boss.</h1>");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
-		
+		}		
 	}
 
 }

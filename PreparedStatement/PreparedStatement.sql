@@ -11,7 +11,7 @@ create table product(
 
 select * from product;
 
-
+insert into product values(1,'Juice','Nice Product in market',100);
 
 
 
