@@ -3,6 +3,8 @@ package com.junaeid.users.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+
+import javax.servlet.ServletConfig;
 //import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/readServlet")
 public class readUserServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection conn;
 	
-    public void init() throws ServletException {
+    public void init(ServletConfig config) throws ServletException {
     	try {
     		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    		conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234");
-		} catch (SQLException e) {
+    		//conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234");
+    		System.out.println(config.getInitParameter("dbUrl"));
+    		System.out.println(config.getInitParameter("dbName"));
+    		conn = DriverManager.getConnection(config.getInitParameter("dbUrl")+
+    				config.getInitParameter("dbName") + config.getInitParameter("dbUser") + 
+    				config.getInitParameter("dbPassword"));
+    	} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
