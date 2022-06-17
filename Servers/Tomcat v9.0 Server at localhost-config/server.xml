@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="StartingFirst" path="/StartingFirst" reloadable="true" source="org.eclipse.jst.jee.server:StartingFirst"/><Context docBase="UserApp" path="/UserApp" reloadable="true" source="org.eclipse.jst.jee.server:UserApp"/><Context docBase="PreparedStatement" path="/PreparedStatement" reloadable="true" source="org.eclipse.jst.jee.server:PreparedStatement"/><Context docBase="InterServletCommunication" path="/InterServletCommunication" reloadable="true" source="org.eclipse.jst.jee.server:InterServletCommunication"/></Host>
+      <Context docBase="StartingFirst" path="/StartingFirst" reloadable="true" source="org.eclipse.jst.jee.server:StartingFirst"/><Context docBase="UserApp" path="/UserApp" reloadable="true" source="org.eclipse.jst.jee.server:UserApp"/><Context docBase="PreparedStatement" path="/PreparedStatement" reloadable="true" source="org.eclipse.jst.jee.server:PreparedStatement"/><Context docBase="InterServletCommunication" path="/InterServletCommunication" reloadable="true" source="org.eclipse.jst.jee.server:InterServletCommunication"/><Context docBase="PreInitialization" path="/PreInitialization" reloadable="true" source="org.eclipse.jst.jee.server:PreInitialization"/></Host>
     </Engine>
   </Service>
 </Server>
