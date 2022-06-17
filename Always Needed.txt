@@ -1,0 +1,22 @@
+***Context Parameter for Database Connection****  
+
+
+  <context-param>
+  	<param-name>dbUrl</param-name>
+  	<param-value>jdbc:sqlserver://localhost:1433;</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>dbName</param-name>
+  	<param-value>databaseName=mydb;</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>dbUser</param-name>
+  	<param-value>user=junaeid;</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>dbPassword</param-name>
+  	<param-value>password=1234</param-value>
+  </context-param>
