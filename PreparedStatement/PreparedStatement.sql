@@ -13,5 +13,5 @@ select * from product;
 
 insert into product values(1,'Juice','Nice Product in market',100);
 
-
+update product set price = 200 where id = 1;
 
