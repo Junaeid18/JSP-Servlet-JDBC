@@ -26,5 +26,6 @@ public class FilterDummy extends HttpFilter {
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
+		System.out.println("Nothing");
 	}
 }
