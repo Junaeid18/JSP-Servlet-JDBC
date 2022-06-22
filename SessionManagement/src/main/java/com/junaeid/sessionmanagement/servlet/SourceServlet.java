@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 public class SourceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("userName");
 		HttpSession session = request.getSession();
 		session.setAttribute("user", name);
@@ -23,3 +23,23 @@ public class SourceServlet extends HttpServlet {
 		out.println("<a href='targetServlet'>Click here to get the User Name.</a>");
 	}
 }
+
+
+/*<servlet>
+  	<servlet-name>sourceServlet</servlet-name>
+  	<servlet-class>com.junaeid.sessionmanagement.servlet.SourceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>sourceServlet</servlet-name>
+  	<url-pattern>sourceServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>targetServlet</servlet-name>
+  	<servlet-class>com.junaeid.sessionmanagement.servlet.TargetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>targetServlet</servlet-name>
+  	<url-pattern>targetServlet</url-pattern>
+  </servlet-mapping>
+ */
