@@ -24,6 +24,7 @@ public class SourceServlet extends HttpServlet {
 				System.out.println(cookies[i].getValue());
 			} 			
 		}
+		response.addCookie(new Cookie("Trial", "5530"));
 		String name = request.getParameter("userName");
 		HttpSession session = request.getSession();
 		session.setAttribute("user", name);
