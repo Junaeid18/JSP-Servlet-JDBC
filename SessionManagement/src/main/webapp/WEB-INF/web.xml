@@ -9,23 +9,4 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
-  	<servlet-name>sourceServlet</servlet-name>
-  	<servlet-class>com.junaeid.sessionmanagement.servlet.SourceServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>sourceServlet</servlet-name>
-  	<url-pattern>sourceServlet</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>targetServlet</servlet-name>
-  	<servlet-class>com.junaeid.sessionmanagement.servlet.TargetServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>targetServlet</servlet-name>
-  	<url-pattern>targetServlet</url-pattern>
-  </servlet-mapping>
-  
 </web-app>
