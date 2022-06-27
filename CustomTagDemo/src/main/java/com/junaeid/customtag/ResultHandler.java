@@ -14,6 +14,7 @@ import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
 
 public class ResultHandler extends TagSupport{
+	private static final long serialVersionUID = 1L;
 	Connection conn;
 	PreparedStatement pst;
 	public ResultHandler() throws ClassNotFoundException {
