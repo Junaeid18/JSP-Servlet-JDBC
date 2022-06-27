@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+	<tlibversion>2.0</tlibversion>
+	<jspversion>2.0</jspversion>
+	<shortname>User Informtaion</shortname>
+	<info>This library shows user info using user Email</info>
+	<uri>http://junaeid.com</uri>
+	
+	<tag>
+		<name>showUserInfo</name>
+		<class>com.junaeid.customtag.ResultHandler</class>
+		<info>This library shows user info using user Email</info>
+	</tag>
+</taglib>
