@@ -9,6 +9,12 @@
 </head>
 <body>
 	<h1>
+		<j:set var="mydate" value="29-06-2022"/>	
+		<f:parseDate var="parseDate" value="${mydate}" pattern="dd-MM-yyyy"/>
+		ParseDate : <j:out value="${parseDate}"></j:out>
+	</h1>
+
+	<h1>
 		:fmt in Action :- <br>
 		<j:set var="i" value="${4000.234}" />
 		<f:parseNumber var="i" type="number" value="${i}" />
