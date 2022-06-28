@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="j" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>
+		:fmt in Action :- <br>
+		<j:set var="i" value="${4000.234}" />
+		<f:parseNumber var="i" type="number" value="${i}" />
+		String to Number :
+		<j:out value="${i}" />
+		<br>Number to currency 1 :
+		<f:formatNumber value="${i}" type="currency" />
+		<br>Number to currency 2:
+		<f:formatNumber value="${i}" type="currency" maxFractionDigits="1" />
+		<br>Number to currency 3:
+		<f:formatNumber value="${i}" type="percent" />
+		<br>Number to currency 4:
+		<f:formatNumber value="${i}" type="currency" maxIntegerDigits="2" />
+		<br>Number to currency 5:
+		<f:formatNumber value="${i}" type="number" pattern="@ ###.#####" />
+	</h1>
+
 	<h1>
 		Out in JSTL :
 		<j:out value="${50}"></j:out>
