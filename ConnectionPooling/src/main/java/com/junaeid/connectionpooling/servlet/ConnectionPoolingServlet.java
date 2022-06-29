@@ -18,7 +18,7 @@ public class ConnectionPoolingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			InitialContext initialContext = new InitialContext();
-			DataSource ds = (DataSource) initialContext.lookup("java:com/comp/env/myds");
+			DataSource ds = (DataSource) initialContext.lookup("java:comp/env/myds");
 			Connection connection = ds.getConnection();
 			System.out.println(connection);
 		} catch (Exception e) {

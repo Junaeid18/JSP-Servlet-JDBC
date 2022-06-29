@@ -23,6 +23,6 @@
 	<Resource name="myds" auth="Container"
 		type="javax.sql.DataSource"
 		driveClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		uri="jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234" />
+		url="jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234" />
 
 </Context>
