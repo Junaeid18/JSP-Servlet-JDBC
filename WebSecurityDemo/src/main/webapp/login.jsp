@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="j_security_check" method="post">
 		User Name : <input type="text" name="name"> <br>
 		Password : <input type="text" name="password"><br>
 		<button type="submit">Submit</button>
