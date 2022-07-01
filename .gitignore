@@ -3,3 +3,6 @@
 
 #Not-needed files
 /RemoteSystemsTempFiles
+
+#Tabnine suggestion ignored
+/TabnineDemo
