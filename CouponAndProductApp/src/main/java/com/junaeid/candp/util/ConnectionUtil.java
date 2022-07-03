@@ -1,0 +1,24 @@
+package com.junaeid.candp.util;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class ConnectionUtil {
+	public static Connection getConnection() {
+		Connection conn = null;
+		try {
+			InitialContext context = new InitialContext();
+			DataSource ds = (DataSource) context.lookup("java:comp/env/myds");
+			conn = ds.getConnection();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+}
