@@ -2,6 +2,7 @@ package com.junaeid.candp.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.junaeid.candp.model.Coupon;
@@ -19,5 +20,23 @@ public class CouponDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	public Coupon findCoupon(String code) {
+		Coupon c = new Coupon();
+		Connection conn = ConnectionUtil.getConnection();
+		try {
+			PreparedStatement pst = conn.prepareStatement("select * from coupon where code=?");
+			pst.setString(1, code);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				c.setId(rs.getInt(1));
+				c.setCode(rs.getString(2));
+				c.setExp_date(rs.getString(3));
+				c.setDiscount(rs.getBigDecimal(4));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
 	}
 }
