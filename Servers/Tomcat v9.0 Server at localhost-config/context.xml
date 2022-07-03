@@ -22,6 +22,7 @@
 
 	<Resource name="myds" auth="Container"
 		type="javax.sql.DataSource"
+		maxActive="20" maxIdle="10" maxWait="10000"
 		driveClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		url="jdbc:sqlserver://localhost:1433;databaseName=mydb;user=junaeid;password=1234" />
 
