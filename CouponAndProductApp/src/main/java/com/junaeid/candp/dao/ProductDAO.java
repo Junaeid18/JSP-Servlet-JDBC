@@ -15,6 +15,7 @@ public class ProductDAO {
 			pst.setString(1, p.getName());
 			pst.setString(2, p.getDescription());
 			pst.setBigDecimal(3, p.getPrice());
+			
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
