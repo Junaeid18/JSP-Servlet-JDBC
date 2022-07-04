@@ -7,11 +7,12 @@
 <title>Create Coupon</title>
 </head>
 <body>
-	<form action="">
+	<form action="couponController" method="post">
 		<pre>
 		Coupon Code : <input type="text" name="code"> <br>
 		Expiry Date : <input type="text" name="exp"><br>
 		Discount : <input type="text" name="discount"><br>
+		<input type="hidden" name="action" value="create">
 		<button type="submit">Submit</button>		
 		</pre>
 	</form>

@@ -7,9 +7,10 @@
 <title>Find Coupon</title>
 </head>
 <body>
-	<form action="">
+	<form action="couponController" method="post">
 		<pre>
 		Coupon Code : <input type="text" name="code"> <br>
+		<input type="hidden" name="action" value="find">
 		<button type="submit">Submit</button>		
 		</pre>
 	</form>

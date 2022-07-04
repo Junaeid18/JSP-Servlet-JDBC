@@ -23,6 +23,16 @@ public class couponController extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		if(action.equals("create")) {
+			createCoupon(request, response);			
+		}else if(action.equals("find")) {
+			findCoupon(request, response);
+		}
+		
+	}
+
+	private void createCoupon(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String code = request.getParameter("code");
 		String exp = request.getParameter("exp");
 		String dis = request.getParameter("discount");
@@ -36,7 +46,18 @@ public class couponController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<b>Coupon Created!</b>");
 		out.println("<a href='/CouponAndProductApp'>Home</a>");
+	}
+	
+	private void findCoupon(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String code = request.getParameter("code");
+	
+		Coupon findCoupon = cdao.findCoupon(code);
 		
+		PrintWriter out = response.getWriter();
+		out.println("<b>Coupon Found!</b>");
+		out.println(findCoupon);
+		out.println("<br/>");
+		out.println("<a href='/CouponAndProductApp'>Home</a>");
 	}
 
 }
